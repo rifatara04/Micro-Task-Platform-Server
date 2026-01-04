@@ -1,171 +1,61 @@
-# Micro-Task Platform - Server
+# 🚀 Project Name: **TaskHive**
 
-Backend application for the Micro-Task and Earning Platform, built with Node.js,
-Express, and MongoDB. The server handles authentication, task management,
-payments, and user roles for the platform.
+A micro-task-based earning platform where Admins, Buyers, and Workers collaborate in a dynamic, coin-based system.
 
+---
 
+## 🔐 Admin Login Credentials
 
-## Tech Stack
+- **Email**: hanif@gmail.com  
+- **Password**: H123456@
 
-- **Node.js** - Runtime environment
-- **Express 5** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - ODM for MongoDB
-- **Firebase Admin** - Authentication verification
-- **JWT** - Token-based authentication
-- **Stripe** - Payment processing
-- **BCrypt** - Password hashing
+---
 
-## Project Structure
+## 🌐 Live Site
 
-```
-server/
-├── config/
-│   ├── db.js           # MongoDB connection
-│   └── firebase.js     # Firebase Admin setup
-├── middleware/
-│   ├── auth.js         # JWT verification
-│   ├── verifyAdmin.js  # Admin role check
-│   ├── verifyBuyer.js  # Buyer role check
-│   └── verifyWorker.js # Worker role check
-├── models/
-│   ├── User.js
-│   ├── Task.js
-│   ├── Submission.js
-│   ├── Payment.js
-│   ├── Withdrawal.js
-│   └── Notification.js
-├── routes/
-│   ├── auth.js
-│   ├── users.js
-│   ├── tasks.js
-│   ├── submissions.js
-│   ├── payments.js
-│   ├── withdrawals.js
-│   └── notifications.js
-├── controllers/
-└── utils/
-```
+🔗 [https://micro-task-earning-a12.web.app](https://micro-task-earning-a12.web.app)
 
-## Getting Started
+---
 
-### Prerequisites
+## ✨ Key Features
 
-- Node.js 18+ and npm
-- MongoDB Atlas account or local MongoDB
-- Firebase project with Admin SDK
+- 🔐 **Role-Based Login System**  
+  Users can log in as Admin, Buyer, or Worker, and are redirected to their respective dashboards based on their role.
 
-### Installation
+- 🧑‍💼 **Admin Dashboard**  
+  Admins can manage all users, change roles, view platform stats, and handle withdrawal requests.
 
-1. Install dependencies:
+- 💼 **Buyer Dashboard**  
+  Buyers can create and manage tasks, view worker submissions, and approve or reject them.
 
-```bash
-npm install
-```
+- ⚒️ **Worker Dashboard**  
+  Workers can view available tasks, submit work, and track their earnings and approval status.
 
-2. Create `.env` file:
+- 🪙 **Coin-Based Economy System**  
+  Buyers spend coins to post tasks. Workers earn coins upon task approval. Coins can be used or withdrawn.
 
-```bash
-cp .env.example .env
-```
+- 💳 **Stripe Payment Integration**  
+  Buyers can securely purchase coin packages: 10, 150, 500, and 1000 coins.
 
-3. Add your environment variables to `.env`
+- 💸 **Withdrawal System for Workers**  
+  Workers can request cash withdrawals when they earn at least 200 coins (20 coins = $1), approved by Admin.
 
-4. Start development server:
+- 📊 **Real-Time Statistics and Charts**  
+  Dashboards show insights using visual charts (Recharts) for tasks, payments, and users.
 
-```bash
-npm run dev
-```
+- 🛡️ **JWT-Protected Backend with Firebase Auth**  
+  All sensitive routes are protected via Firebase Authentication and Firebase Admin SDK (JWT-based).
 
-The server will run at `http://localhost:5000`
+- 🌐 **Responsive and Modern UI**  
+  Built with React.js, Tailwind CSS, and DaisyUI. Fully responsive across devices.
 
-## Available Scripts
+---
 
-- `npm start` - Start production server
-- `npm run dev` - Start development server with nodemon
+## 🛠 Tech Stack
 
-## API Endpoints
+- **Frontend**: React, React Router, Tailwind CSS, DaisyUI  
+- **Backend**: Node.js, Express.js, MongoDB  
+- **Auth**: Firebase Auth, Firebase Admin SDK  
+- **Payments**: Stripe  
 
-### Authentication
-
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `POST /api/auth/google` - Google Sign-In
-- `GET /api/auth/me` - Get current user
-
-### Users (Admin only)
-
-- `GET /api/users` - Get all users
-- `PATCH /api/users/:id/role` - Update user role
-- `DELETE /api/users/:id` - Delete user
-
-### Tasks
-
-- `GET /api/tasks` - Get available tasks
-- `GET /api/tasks/:id` - Get task details
-- `POST /api/tasks` - Create task (Buyer)
-- `PATCH /api/tasks/:id` - Update task (Buyer)
-- `DELETE /api/tasks/:id` - Delete task
-
-### Submissions
-
-- `POST /api/submissions` - Create submission (Worker)
-- `GET /api/submissions/worker/:email` - Get worker submissions
-- `PATCH /api/submissions/:id/approve` - Approve submission (Buyer)
-- `PATCH /api/submissions/:id/reject` - Reject submission (Buyer)
-
-### Payments
-
-- `POST /api/payments/create-intent` - Create Stripe payment intent
-- `POST /api/payments/confirm` - Confirm payment
-- `GET /api/payments/buyer/:email` - Get payment history
-
-### Withdrawals
-
-- `POST /api/withdrawals` - Create withdrawal request
-- `GET /api/withdrawals/pending` - Get pending requests (Admin)
-- `PATCH /api/withdrawals/:id/approve` - Approve withdrawal (Admin)
-
-### Notifications
-
-- `GET /api/notifications/:email` - Get user notifications
-- `PATCH /api/notifications/:id/read` - Mark as read
-
-## Environment Variables
-
-See `.env.example` for required environment variables.
-
-## Database Models
-
-- **User** - User accounts with roles and coins
-- **Task** - Tasks created by buyers
-- **Submission** - Task submissions by workers
-- **Payment** - Buyer coin purchases
-- **Withdrawal** - Worker withdrawal requests
-- **Notification** - User notifications
-
-## What I Learned in this Vibe Coding Project
-
-This project was built using a "Vibe Coding" approach, leveraging AI assistance
-to accelerate development while maintaining code quality. Key learnings include:
-
-- **AI-Assisted Workflow:** Integrating AI agents to handle boilerplate code,
-  debugging, and rapid prototyping.
-- **Complex State Management:** Handling multi-role authentication
-  (Worker/Buyer/Admin) and real-time state updates.
-- **Secure Payments:** Implementing Stripe for secure financial transactions and
-  coin-based economy logic.
-- **System Architecture:** Designing a scalable MERN stack architecture with
-  clean separation of concerns.
-- **Responsive Design:** Using Tailwind CSS and DaisyUI to create a modern,
-  mobile-first interface.
-
-## ⏱Development Time
-
-- **Estimated Build Time:** ~15-20 Hours
-- **Core Features:** 10 Hours
-- **UI/UX Refinement:** 5 Hours
-- **Testing & Debugging:** 3 Hours
-- **Built with:** ♥️ and AI Assistance
 
